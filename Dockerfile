@@ -21,6 +21,7 @@ RUN apt-get install -y nodejs \
 # Install the latest version of Yarn
 RUN curl -SL https://yarnpkg.com/latest.tar.gz -o $TMP/latest.tar.gz \
     && cd $TMP/ && tar -zxf latest.tar.gz && rm latest.tar.gz \
+    && mkdir $TMP/dist \
     && mv $TMP/dist /opt/yarn \
     && ln -sf /opt/yarn/bin/yarn /usr/bin/yarn
 
