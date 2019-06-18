@@ -2,6 +2,9 @@ FROM ubuntu:19.04
 
 ENV TMP /tmp
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
 RUN apt-get update
 RUN apt-get install -y cmake \
     build-essential \
@@ -16,13 +19,7 @@ RUN apt-get install -y cmake \
     curl
 RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs \
-    build-essential
-
-# Install the latest version of Yarn
-RUN curl -SL https://yarnpkg.com/latest.tar.gz -o $TMP/latest.tar.gz \
-    && cd $TMP/ && tar -zxf latest.tar.gz && rm latest.tar.gz \
-    && mkdir $TMP/dist \
-    && mv $TMP/dist /opt/yarn \
-    && ln -sf /opt/yarn/bin/yarn /usr/bin/yarn
+    build-essential \
+    yarn
 
 RUN apt-get clean
