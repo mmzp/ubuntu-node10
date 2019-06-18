@@ -2,7 +2,7 @@ FROM ubuntu:19.04
 
 ENV TMP /tmp
 
-# RUN apt-get update
+RUN apt-get update
 RUN apt-get install -y cmake \
     build-essential \
     freeglut3-dev \
