@@ -14,7 +14,8 @@ RUN apt-get install -y cmake \
     libfreetype6-dev \
     libfontconfig1-dev \
     curl \
-    wget
+    wget \
+    unzip
 RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs \
     build-essential
