@@ -13,7 +13,8 @@ RUN apt-get install -y cmake \
     bison \
     libfreetype6-dev \
     libfontconfig1-dev \
-    curl
+    curl \
+    wget
 RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs \
     build-essential
